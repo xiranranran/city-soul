@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>城靈設定官方資料庫 - City Soul Archive</title>
+    <title>城靈設定資料庫 - City Soul Archive</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -187,11 +187,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div>
                         <h3 class="text-2xl font-bold text-emerald-700 mb-4"><i class="fa-solid fa-clock-rotate-left mr-2"></i> 年 (History)</h3>
-                        <p class="text-slate-600 leading-relaxed">指歷史長度（資歷）。決定了城靈的閱歷與對歷史靈力的掌控力。</p>
+                        <p class="text-slate-600 leading-relaxed">歷史長度（資歷）。決定了城靈的閱歷與對歷史靈力的掌控力。</p>
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold text-sky-700 mb-4"><i class="fa-solid fa-user mr-2"></i> 歲 (Age)</h3>
-                        <p class="text-slate-600 leading-relaxed">指生理與心理年齡。決定了心智形態、性格及對現代靈力的承載力。</p>
+                        <p class="text-slate-600 leading-relaxed">生理與心理年齡。決定了心智形態、性格及對現代靈力的承載力。</p>
                     </div>
                 </div>
             </div>
@@ -241,7 +241,7 @@
                     <i class="fa-solid fa-feather-pointed mr-3 text-sky-600"></i>創作狀態
                 </h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    關於《靈》目前由「汐染」進行創作，創作主要內容為插畫以及絕對不連載(?)短篇小說。
+                    關於《靈》目前由「汐染」進行創作，創作主要內容為絕對不連載的(?)短篇小說。
                 </p>
                 <div class="flex space-x-4">
                     <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-bold">概念孵化中</span>
@@ -264,16 +264,16 @@
 
     <script>
         const powerData = [
-            { tier: 1, name: '金', color: 'amber-500', desc: '強化軀體、靈能傳導。', value: '防禦與鋒利度。' },
-            { tier: 1, name: '木', color: 'emerald-500', desc: '生命再生、操縱植被。', value: '持續戰鬥與修復力。' },
-            { tier: 1, name: '水', color: 'blue-500', desc: '形態變化、氣息隱匿。', value: '能量調度靈活性。' },
-            { tier: 1, name: '火', color: 'red-500', desc: '純化能量、爆燃。', value: '侵略性底色。' },
-            { tier: 1, name: '土', color: 'amber-800', desc: '改變地形、物理防禦。', value: '穩定地脈補給。' },
-            { tier: 2, name: '商', color: 'rose-500', desc: '等價交換、建立契約。', value: '策略型干擾。' },
-            { tier: 2, name: '防', color: 'indigo-500', desc: '文明屏障、傷害吸收。', value: '保護核心防反噬。' },
-            { tier: 2, name: '民', color: 'cyan-500', desc: '精神防禦、穩固意識。', value: '抵禦數據化冷酷感。' },
-            { tier: 2, name: '器', color: 'slate-500', desc: '靈力具現化、兵刃。', value: '增加打擊精準度。' },
-            { tier: 2, name: '藥', color: 'emerald-600', desc: '內部調理、平衡靈壓。', value: '增強耐力與防禦。' },
+            { tier: 1, name: '金', color: 'amber-500', desc: '強化軀體、靈能傳導。', value: '防禦與鋒利度，可使情緒冷靜，常見於城市。' },
+            { tier: 1, name: '木', color: 'emerald-500', desc: '生命再生、操縱植被。', value: '持續戰鬥與修復力，常見於城市。' },
+            { tier: 1, name: '水', color: 'blue-500', desc: '形態變化、氣息隱匿。', value: '能量調度靈活性，常見於臨江濱海城市。' },
+            { tier: 1, name: '火', color: 'red-500', desc: '純化能量、爆燃。', value: '侵略性底色，常見於城市。' },
+            { tier: 1, name: '土', color: 'amber-800', desc: '改變地形、物理防禦。', value: '穩定地脈補給，常見於中原地區城市。' },
+            { tier: 2, name: '商', color: 'rose-500', desc: '等價交換、建立契約。', value: '策略型干擾，當城市商業發達或形成大型市街時，易獲得此類靈力。' },
+            { tier: 2, name: '防', color: 'indigo-500', desc: '文明屏障、傷害吸收。', value: '保護核心防止反噬，易獲得此類靈力。' },
+            { tier: 2, name: '民', color: 'cyan-500', desc: '精神防禦、穩固意識。', value: '抵禦數據化冷酷感，易獲得此類靈力。' },
+            { tier: 2, name: '器', color: 'slate-500', desc: '靈力具現化、兵刃。', value: '增加打擊精準度，易獲得此類靈力。' },
+            { tier: 2, name: '藥', color: 'emerald-600', desc: '內部調理、平衡靈壓。', value: '增強耐力與防禦，易獲得此類靈力。' },
             { tier: 3, name: '電', color: 'blue-600', desc: '高頻脈衝、電磁穿透。', value: '瞬間癱瘓靈力路徑。' },
             { tier: 3, name: '數', color: 'violet-600', desc: '邏輯覆蓋、算法預判。', value: '修改區域規則。' },
             { tier: 3, name: '化', color: 'orange-600', desc: '工業腐蝕、工業靈能。', value: '穿透傳統二型防禦。' },
