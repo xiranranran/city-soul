@@ -28,20 +28,29 @@
             border-bottom: 1px solid #e2e8f0;
             display: flex;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        @media (min-width: 768px) {
+            .header-nav { padding: 0 2rem; }
         }
 
         .nav-btn {
             height: 100%;
-            padding: 0 1.5rem;
+            padding: 0 0.85rem;
             display: flex;
             align-items: center;
             font-weight: 700;
             color: #64748b;
             border-bottom: 3px solid transparent;
             transition: all 0.2s;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .nav-btn { padding: 0 1.5rem; font-size: 0.95rem; }
         }
 
         .nav-btn:hover { color: #0284c7; background: #f0f9ff; }
@@ -51,24 +60,35 @@
             background: rgba(2, 132, 199, 0.05);
         }
 
-        /* 右側縱軸 */
+        /* 右側縱軸 (桌面端為右側) */
         .right-sidebar {
-            width: 240px;
-            height: calc(100vh - 70px);
-            position: fixed;
-            right: 0;
-            top: 70px;
-            background: #ffffff;
-            border-left: 1px solid #e2e8f0;
-            padding: 2rem 1.5rem;
-            z-index: 50;
-            display: flex; flex-direction: column; gap: 1rem;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .right-sidebar {
+                display: flex;
+                width: 240px;
+                height: calc(100vh - 70px);
+                position: fixed;
+                right: 0;
+                top: 70px;
+                background: #ffffff;
+                border-left: 1px solid #e2e8f0;
+                padding: 2rem 1.5rem;
+                z-index: 50;
+                flex-direction: column; gap: 1rem;
+            }
         }
 
         .sidebar-item {
-            width: 100%; padding: 1.25rem; border-radius: 1rem; font-weight: 900;
+            width: 100%; padding: 0.75rem 1rem; border-radius: 1rem; font-weight: 900;
             color: #475569; background: #f8fafc; border: 2px solid #f1f5f9;
-            text-align: center; transition: all 0.2s; font-size: 1rem; cursor: pointer;
+            text-align: center; transition: all 0.2s; font-size: 0.9rem; cursor: pointer;
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar-item { padding: 1.25rem; font-size: 1rem; }
         }
 
         .sidebar-item:hover { border-color: #bae6fd; color: #0284c7; transform: translateY(-2px); }
@@ -77,12 +97,20 @@
             box-shadow: 0 8px 16px -4px rgba(2, 132, 199, 0.3);
         }
 
-        /* 主內容區 */
+        /* 主內容區響應式調整 */
         .main-content {
             margin-top: 70px;
-            margin-right: 240px;
-            padding: 3rem;
+            margin-right: 0;
+            padding: 1.25rem;
             min-height: calc(100vh - 70px);
+        }
+
+        @media (min-width: 768px) {
+            .main-content { padding: 2.5rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .main-content { margin-right: 240px; padding: 3rem; }
         }
 
         .view-content { display: none; animation: fadeIn 0.4s ease-out forwards; }
@@ -91,19 +119,35 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* 元件樣式 */
-        .glass-panel { background: white; border: 1px solid #e2e8f0; border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .glass-panel { 
+            background: white; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 1.25rem; 
+            padding: 1.25rem; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+        }
+
+        @media (min-width: 768px) {
+            .glass-panel { border-radius: 1.5rem; padding: 2.5rem; }
+        }
         
         .spirit-card {
-            aspect-ratio: 2 / 3; background: #ffffff; border: 8px solid #f1f5f9; border-radius: 1.5rem;
+            aspect-ratio: 2 / 3; background: #ffffff; border: 6px solid #f1f5f9; border-radius: 1.25rem;
             position: relative; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             cursor: pointer; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
+        @media (min-width: 768px) {
+            .spirit-card { border-width: 8px; border-radius: 1.5rem; }
+        }
         .spirit-card:hover { transform: translateY(-8px); border-color: #bae6fd; }
 
         .type-card {
-            background: white; border: 1px solid #cbd5e1; border-radius: 1rem; padding: 1.5rem;
+            background: white; border: 1px solid #cbd5e1; border-radius: 0.75rem; padding: 1rem;
             transition: all 0.2s; cursor: pointer;
+        }
+        @media (min-width: 768px) {
+            .type-card { border-radius: 1rem; padding: 1.5rem; }
         }
         .type-card:hover { border-color: #0284c7; transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
 
@@ -112,50 +156,60 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             padding: 3rem 1.5rem; color: #94a3b8;
         }
+
+        /* 滾動條質感化 */
+        ::-webkit-scrollbar { height: 6px; width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
     </style>
 </head>
 <body class="bg-slate-50">
 
     <!-- 彈窗組件 -->
     <div id="modal-overlay" class="fixed inset-0 z-[110] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div id="modal-container" class="bg-white max-w-xl w-full rounded-[2rem] overflow-hidden shadow-2xl scale-95 transition-transform duration-300 ease-out" onclick="event.stopPropagation()">
-            <div id="modal-header-bg" class="p-8 pb-6 flex justify-between items-start bg-gradient-to-br from-sky-500 to-indigo-600 text-white">
+        <div id="modal-container" class="bg-white max-w-xl w-full rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-2xl scale-95 transition-transform duration-300 ease-out" onclick="event.stopPropagation()">
+            <div id="modal-header-bg" class="p-6 sm:p-8 pb-5 flex justify-between items-start bg-gradient-to-br from-sky-500 to-indigo-600 text-white">
                 <div>
                     <span id="modal-tag" class="text-[10px] font-black uppercase tracking-[0.2em] bg-white/20 px-2 py-1 rounded mb-2 inline-block">SYSTEM ARCHIVE</span>
-                    <h3 id="modal-title" class="text-3xl font-bold">解析內容</h3>
+                    <h3 id="modal-title" class="text-2xl sm:text-3xl font-bold">解析內容</h3>
                 </div>
-                <button onclick="closeModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+                <button onclick="closeModal()" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="p-8">
-                <div id="modal-body" class="space-y-6">
+            <div class="p-6 sm:p-8">
+                <div id="modal-body" class="space-y-4 sm:space-y-6">
                     <section>
                         <h4 class="text-sky-600 font-bold mb-2 flex items-center"><i class="fa-solid fa-book-open mr-2"></i> 詳細功用說明</h4>
-                        <p id="modal-desc" class="text-slate-600 leading-relaxed text-base"></p>
+                        <p id="modal-desc" class="text-slate-600 leading-relaxed text-sm sm:text-base"></p>
                     </section>
-                    <section class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                        <h4 class="text-indigo-600 font-bold mb-2 flex items-center"><i class="fa-solid fa-swords mr-2 text-sm"></i> 核心價值與備註</h4>
-                        <p id="modal-value" class="text-slate-700 font-medium italic"></p>
+                    <section class="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100">
+                        <h4 class="text-indigo-600 font-bold mb-2 flex items-center text-xs sm:text-sm"><i class="fa-solid fa-swords mr-2"></i> 核心價值與備註</h4>
+                        <p id="modal-value" class="text-slate-700 font-medium italic text-xs sm:text-sm"></p>
                     </section>
                 </div>
             </div>
         </div>
     </div>
 
-    <header class="header-nav">
-        <div class="flex items-center space-x-3 mr-auto cursor-pointer" onclick="handleNav('home')">
-            <div class="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center font-bold text-white text-xl shadow-lg shadow-sky-200">靈</div>
-            <span class="font-bold tracking-widest text-xl text-sky-900 font-[Cinzel]">CITY SOUL</span>
+    <!-- 頂部橫軸與導航條 -->
+    <header class="header-nav justify-between">
+        <div class="flex items-center space-x-2 sm:space-x-3 cursor-pointer shrink-0" onclick="handleNav('home')">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-sky-600 rounded-xl flex items-center justify-center font-bold text-white text-lg sm:text-xl shadow-lg shadow-sky-200">靈</div>
+            <span class="font-bold tracking-widest text-lg sm:text-xl text-sky-900 font-[Cinzel]">CITY SOUL</span>
         </div>
-        <nav class="flex h-full">
+        
+        <!-- 導航選單 -->
+        <nav class="flex h-full overflow-x-auto no-scrollbar scroll-smooth">
             <button onclick="handleNav('home')" class="nav-btn active" data-nav="home">首頁概覽</button>
             <button onclick="handleNav('growth')" class="nav-btn" data-nav="growth">生命規律</button>
             <button onclick="handleNav('powers')" class="nav-btn" data-nav="powers">靈力體系</button>
             <button onclick="handleNav('cards')" class="nav-btn" data-nav="cards">靈牌系統</button>
+            <button onclick="handleNav('about-work')" class="nav-btn lg:hidden" data-nav="about-work">關於作品</button>
         </nav>
     </header>
 
+    <!-- 右側縱軸 -->
     <aside class="right-sidebar">
         <button onclick="handleNav('about-work')" class="sidebar-item" data-nav="about-work">關於作品</button>
     </aside>
@@ -163,101 +217,165 @@
     <main class="main-content">
         <!-- 1. 首頁 -->
         <div id="view-home" class="view-content active">
-            <h1 class="text-5xl font-black mb-2 text-slate-900">核心構造</h1>
-            <p class="text-slate-500 mb-8 uppercase tracking-widest text-sm font-bold">Core Structure Archive</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glass-panel border-l-8 border-sky-500">
-                    <i class="fa-solid fa-brain text-4xl text-sky-600 mb-6"></i>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3">意識體 Consciousness</h3>
-                    <p class="text-slate-600">城靈的核心自我，決定了靈力的後天衍生方向。通常以「人型」為預設座標。</p>
+            <h1 class="text-3xl sm:text-5xl font-black mb-1 sm:mb-2 text-slate-900">核心構造</h1>
+            <p class="text-slate-500 mb-6 sm:mb-8 uppercase tracking-widest text-xs sm:text-sm font-bold">Core Structure Archive</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+                <div class="glass-panel border-l-4 sm:border-l-8 border-sky-500">
+                    <i class="fa-solid fa-brain text-3xl sm:text-4xl text-sky-600 mb-4 sm:mb-6"></i>
+                    <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-2 sm:mb-3">意識體 Consciousness</h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">城靈的核心自我，決定了靈力的後天衍生方向。通常以「人型」為預設座標。</p>
                 </div>
-                <div class="glass-panel border-l-8 border-amber-500">
-                    <i class="fa-solid fa-atom text-4xl text-amber-600 mb-6"></i>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3">靈核 Spiritual Core</h3>
-                    <p class="text-slate-600">承載靈力的容器。結構穩定性直接影響生理狀態。</p>
+                <div class="glass-panel border-l-4 sm:border-l-8 border-amber-500">
+                    <i class="fa-solid fa-atom text-3xl sm:text-4xl text-amber-600 mb-4 sm:mb-6"></i>
+                    <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-2 sm:mb-3">靈核 Spiritual Core</h3>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">承載靈力的容器。結構穩定性直接影響生理狀態。</p>
                 </div>
             </div>
         </div>
 
         <!-- 2. 生命規律 -->
         <div id="view-growth" class="view-content">
-            <h1 class="text-5xl font-black mb-2 text-slate-900">生命成長規律</h1>
-            <p class="text-slate-500 mb-8 uppercase tracking-widest text-sm font-bold">Growth & Synchronization</p>
-            <div class="glass-panel mb-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <h1 class="text-3xl sm:text-5xl font-black mb-1 sm:mb-2 text-slate-900">生命成長規律</h1>
+            <p class="text-slate-500 mb-6 sm:mb-8 uppercase tracking-widest text-xs sm:text-sm font-bold">Growth & Synchronization</p>
+            <div class="glass-panel mb-6 sm:mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
                     <div>
-                        <h3 class="text-2xl font-bold text-emerald-700 mb-4"><i class="fa-solid fa-clock-rotate-left mr-2"></i> 年 (History)</h3>
-                        <p class="text-slate-600 leading-relaxed">歷史長度（資歷）。決定了城靈的閱歷與對歷史靈力的掌控力。</p>
+                        <h3 class="text-xl sm:text-2xl font-bold text-emerald-700 mb-2 sm:mb-4"><i class="fa-solid fa-clock-rotate-left mr-2"></i> 年 (History)</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">歷史長度（資歷）。決定了城靈的閱歷與對歷史靈力的掌控力。</p>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-sky-700 mb-4"><i class="fa-solid fa-user mr-2"></i> 歲 (Age)</h3>
-                        <p class="text-slate-600 leading-relaxed">生理與心理年齡。決定了心智形態、性格及對現代靈力的承載力。</p>
+                        <h3 class="text-xl sm:text-2xl font-bold text-sky-700 mb-2 sm:mb-4"><i class="fa-solid fa-user mr-2"></i> 歲 (Age)</h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">生理與心理年齡。決定了心智形態、性格及對現代靈力的承載力。</p>
                     </div>
                 </div>
             </div>
-            <div class="p-6 bg-slate-200 rounded-xl border-l-4 border-slate-500 text-slate-700 italic">
+            <div class="p-4 sm:p-6 bg-slate-200 rounded-xl border-l-4 border-slate-500 text-slate-700 text-xs sm:text-sm italic">
                 * 成長停滯：若前期成長過快，後期青春期會劇烈放緩。
             </div>
         </div>
 
         <!-- 3. 靈力體系 -->
         <div id="view-powers" class="view-content">
-            <h1 class="text-5xl font-black mb-2 text-slate-900">靈力體系</h1>
-            <p class="text-slate-500 mb-8 uppercase tracking-widest text-sm font-bold">Spiritual Power System</p>
-            <div class="flex space-x-3 mb-8">
-                <button onclick="filterTier(1)" class="tier-filter px-6 py-2 rounded-xl bg-amber-500 text-white font-bold shadow-md">一型：地脈</button>
-                <button onclick="filterTier(2)" class="tier-filter px-6 py-2 rounded-xl bg-white text-slate-600 border font-bold">二型：演化</button>
-                <button onclick="filterTier(3)" class="tier-filter px-6 py-2 rounded-xl bg-white text-slate-600 border font-bold">三型：異質</button>
+            <h1 class="text-3xl sm:text-5xl font-black mb-1 sm:mb-2 text-slate-900">靈力體系</h1>
+            <p class="text-slate-500 mb-6 sm:mb-8 uppercase tracking-widest text-xs sm:text-sm font-bold">Spiritual Power System</p>
+            
+            <!-- Excel 靈力類型與調度機制 原樣表格 -->
+            <div class="glass-panel mb-6 sm:mb-8 overflow-hidden">
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 flex items-center">
+                    <i class="fa-solid fa-table-list text-sky-600 mr-2 sm:mr-3"></i>靈力類型與調度機制
+                </h3>
+                <div class="overflow-x-auto -mx-1 sm:mx-0">
+                    <table class="w-full border-collapse border border-slate-300 text-xs sm:text-sm text-left min-w-[600px]">
+                        <thead>
+                            <tr class="bg-slate-100">
+                                <th class="border border-slate-300 p-2 sm:p-3 font-bold text-slate-800 w-[120px]">靈力類型</th>
+                                <th class="border border-slate-300 p-2 sm:p-3 font-bold text-slate-800">來源與特性</th>
+                                <th class="border border-slate-300 p-2 sm:p-3 font-bold text-slate-800 w-[130px]">能量占比</th>
+                                <th class="border border-slate-300 p-2 sm:p-3 font-bold text-slate-800">調度機制（本能行為）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-slate-300 p-2 sm:p-3 font-bold text-slate-900">一型（地脈）</td>
+                                <td class="border border-slate-300 p-2 sm:p-3"><strong class="font-bold">天生天賦。</strong>源自自然地理（如水、土），完美切合，誕生即有。</td>
+                                <td class="border border-slate-300 p-2 sm:p-3 font-bold text-sky-700">強制佔用 50%</td>
+                                <td class="border border-slate-300 p-2 sm:p-3">城靈的存在根基，不可輕易動用，否則會導致意識體崩潰。</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-slate-300 p-2 sm:p-3 font-bold text-slate-900">二型（成長）</td>
+                                <td class="border border-slate-300 p-2 sm:p-3"><strong class="font-bold">後天發展（非現代）。</strong>源自古代城防、傳統工藝、商貿歷史。</td>
+                                <td class="border border-slate-300 p-2 sm:p-3 font-bold text-emerald-700">剩餘 50% 的分配</td>
+                                <td class="border border-slate-300 p-2 sm:p-3"><strong class="font-bold">作為緩衝器。</strong>當三型需求大時，本能會調動二型能量去補足。</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-slate-300 p-2 sm:p-3 font-bold text-slate-900">三型（演化）</td>
+                                <td class="border border-slate-300 p-2 sm:p-3"><strong class="font-bold">完全現代化。</strong>源自高新技術（光電、數據）、現代產業。</td>
+                                <td class="border border-slate-300 p-2 sm:p-3 font-bold text-indigo-700">剩餘 50% 的分配</td>
+                                <td class="border border-slate-300 p-2 sm:p-3"><strong class="font-bold">作為主攻器。</strong>若二型能量不足，本能會強行透支剩餘空間，甚至動搖一型核心。</td>
+                            </tr>
+                            <tr class="bg-rose-50">
+                                <td class="border border-slate-300 p-2 sm:p-3 font-bold text-rose-900">磨合期</td>
+                                <td class="border border-slate-300 p-2 sm:p-3 text-rose-900">獲得二、三型新靈力時，會有一段不穩定的過度時間（生理排斥或情緒波動）。</td>
+                                <td class="border border-slate-300 p-2 sm:p-3 text-rose-900 font-bold">—</td>
+                                <td class="border border-slate-300 p-2 sm:p-3 text-rose-900"><strong class="font-bold">與意願無關。</strong>身體會根據環境自動調整天平，可能導致意識與行為背離。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div id="element-grid" class="grid grid-cols-2 md:grid-cols-5 gap-4"></div>
+
+            <!-- 切換標籤區域 -->
+            <div class="flex flex-wrap gap-2 mb-6 sm:mb-8">
+                <button onclick="filterTier(1)" class="tier-filter px-4 sm:px-6 py-2 rounded-xl bg-amber-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all">一型：地脈</button>
+                <button onclick="filterTier(2)" class="tier-filter px-4 sm:px-6 py-2 rounded-xl bg-white text-slate-600 border font-bold text-xs sm:text-sm transition-all">二型：演化</button>
+                <button onclick="filterTier(3)" class="tier-filter px-4 sm:px-6 py-2 rounded-xl bg-white text-slate-600 border font-bold text-xs sm:text-sm transition-all">三型：異質</button>
+            </div>
+            <div id="element-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4"></div>
         </div>
 
         <!-- 4. 靈牌系統 -->
         <div id="view-cards" class="view-content">
-            <h1 class="text-5xl font-black mb-2 text-slate-900">靈牌系統</h1>
-            <p class="text-slate-500 mb-8 uppercase tracking-widest text-sm font-bold">Card Templates</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="spirit-card p-8 group" onclick="openModal({name: '專屬鎖定', desc: '靈牌具有唯一性，由城靈的本源意識凝聚而成。', value: '核心特性：不可轉讓。', tier: 'card'})">
-                    <i class="fa-solid fa-fingerprint text-4xl mb-4 text-indigo-600"></i>
-                    <h4 class="font-bold text-xl">專屬鎖定</h4>
+            <h1 class="text-3xl sm:text-5xl font-black mb-1 sm:mb-2 text-slate-900">靈牌系統</h1>
+            <p class="text-slate-500 mb-6 sm:mb-8 uppercase tracking-widest text-xs sm:text-sm font-bold">Card Templates</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
+                <div class="spirit-card p-6 sm:p-8 group" onclick="openModal({name: '專屬鎖定', desc: '靈牌具有唯一性，由城靈的本源意識凝聚而成。', value: '核心特性：不可轉讓。', tier: 'card'})">
+                    <i class="fa-solid fa-fingerprint text-3xl sm:text-4xl mb-3 sm:mb-4 text-indigo-600"></i>
+                    <h4 class="font-bold text-lg sm:text-xl">專屬鎖定</h4>
                 </div>
-                <div class="spirit-card p-8 group" onclick="openModal({name: '全盛模板', desc: '啟動瞬間修正靈壓至設定數值。', value: '戰術價值：無視環境懲罰。', tier: 'card'})">
-                    <i class="fa-solid fa-bolt text-4xl mb-4 text-sky-600"></i>
-                    <h4 class="font-bold text-xl">全盛模板</h4>
+                <div class="spirit-card p-6 sm:p-8 group" onclick="openModal({name: '全盛模板', desc: '啟動瞬間修正靈壓至設定數值。', value: '戰術價值：無視環境懲罰。', tier: 'card'})">
+                    <i class="fa-solid fa-bolt text-3xl sm:text-4xl mb-3 sm:mb-4 text-sky-600"></i>
+                    <h4 class="font-bold text-lg sm:text-xl">全盛模板</h4>
                 </div>
-                <div class="spirit-card p-8 group border-rose-200" onclick="openModal({name: '遺留靈牌', desc: '暴力抽取地脈能量。', value: '副作用：靈核過熱。', tier: 'card'})">
-                    <i class="fa-solid fa-triangle-exclamation text-4xl mb-4 text-rose-600"></i>
-                    <h4 class="font-bold text-xl">遺留靈牌</h4>
+                <div class="spirit-card p-6 sm:p-8 group border-rose-200" onclick="openModal({name: '遺留靈牌', desc: '暴力抽取地脈能量。', value: '副作用：靈核過熱。', tier: 'card'})">
+                    <i class="fa-solid fa-triangle-exclamation text-3xl sm:text-4xl mb-3 sm:mb-4 text-rose-600"></i>
+                    <h4 class="font-bold text-lg sm:text-xl">遺留靈牌</h4>
                 </div>
             </div>
         </div>
 
         <!-- 5. 關於作品 -->
         <div id="view-about-work" class="view-content">
-            <h1 class="text-5xl font-black mb-2 text-slate-900">關於作品</h1>
-            <p class="text-slate-500 mb-8 uppercase tracking-widest text-sm font-bold">Project Info</p>
-            <div class="glass-panel mb-12">
-                <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center">
-                    <i class="fa-solid fa-feather-pointed mr-3 text-sky-600"></i>創作狀態
+            <h1 class="text-3xl sm:text-5xl font-black mb-1 sm:mb-2 text-slate-900">關於作品</h1>
+            <p class="text-slate-500 mb-6 sm:mb-8 uppercase tracking-widest text-xs sm:text-sm font-bold">Project Info</p>
+            
+            <!-- 作者的話 -->
+            <div class="glass-panel mb-6 sm:mb-8 border-l-4 sm:border-l-8 border-sky-500 bg-sky-50/30">
+                <h3 class="text-xl sm:text-2xl font-bold text-sky-900 mb-3 sm:mb-4 flex items-center">
+                    <i class="fa-solid fa-comment-dots mr-2 sm:mr-3 text-sky-600"></i>作者的話 (Author's Note)
                 </h3>
-                <p class="text-slate-600 leading-relaxed mb-4">
+                <div class="text-slate-700 leading-relaxed space-y-3 text-sm sm:text-base">
+                    <p>
+                        這個世界觀之所以能夠構成，是因為汐染剛開始搞城擬的時候很常聽到「城靈」這個詞，所以就引發了一系列關於靈力的奇思妙想。
+                    </p>
+                    <p>
+                        再者是關於戰爭，雖然此世界觀仍建立在現實歷史之上，但我會想，如果城市擁有「靈力」如此強大的力量，在面對戰爭時或許就不會如此無能為力。
+                    </p>
+                    <p class="pt-2 font-medium text-sky-800 italic">
+                        「儘管這是個不成熟且中二的作品，但這代表我有廣闊的進步空間。也歡迎友好地向我提出改良建議！」
+                    </p>
+                </div>
+            </div>
+
+            <!-- 創作狀態 -->
+            <div class="glass-panel mb-8 sm:mb-12">
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 flex items-center">
+                    <i class="fa-solid fa-feather-pointed mr-2 sm:mr-3 text-sky-600"></i>創作狀態
+                </h3>
+                <p class="text-slate-600 leading-relaxed mb-4 text-sm sm:text-base">
                     關於《靈》目前由「汐染」進行創作，創作主要內容為絕對不連載的(?)短篇小說。
                 </p>
-                <div class="flex space-x-4">
+                <div class="flex flex-wrap gap-2">
                     <span class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-xs font-bold">概念孵化中</span>
                     <span class="px-3 py-1 bg-slate-100 text-slate-500 rounded-full text-xs font-bold">設定擴充中</span>
                 </div>
             </div>
-            <h2 class="text-3xl font-black mb-6 text-slate-800">作品展示 Gallery</h2>
-<div class="work-display-card">
-    <img src="你的圖片檔名.jpg" alt="作品名稱" class="w-full h-48 object-cover rounded-t-xl mb-4">
-    <div class="px-4 pb-4">
-        <h4 class="font-bold text-slate-800 mb-1">作品標題</h4>
-        <p class="text-xs text-slate-500">這裡可以寫一點關於這張畫的介紹...</p>
-    </div>
-</div>
-上傳</p>
-                </div>
+
+            <!-- 作品展示區 -->
+            <h2 class="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-slate-800">作品展示 Gallery</h2>
+            <div class="work-display-card loading">
+                <i class="fa-solid fa-images text-3xl sm:text-4xl mb-3"></i>
+                <p class="font-bold text-slate-600 text-sm sm:text-base">作品準備中</p>
+                <p class="text-xs text-slate-400 mt-1">未來圖片將在此上傳展示</p>
             </div>
         </div>
     </main>
@@ -289,14 +407,14 @@
                 const card = document.createElement('div');
                 card.className = `type-card border-t-4 border-${item.color}`;
                 card.onclick = () => openModal(item);
-                card.innerHTML = `<h4 class="font-bold text-slate-800 mb-1 text-lg">${item.name}</h4><p class="text-xs text-slate-500">${item.desc}</p>`;
+                card.innerHTML = `<h4 class="font-bold text-slate-800 mb-1 text-base sm:text-lg">${item.name}</h4><p class="text-[11px] sm:text-xs text-slate-500">${item.desc}</p>`;
                 grid.appendChild(card);
             });
         }
 
         function filterTier(tier) {
             document.querySelectorAll('.tier-filter').forEach((btn, idx) => {
-                btn.className = (idx + 1 === tier) ? `tier-filter px-6 py-2 rounded-xl bg-sky-600 text-white font-bold shadow-md` : `tier-filter px-6 py-2 rounded-xl bg-white text-slate-600 border font-bold`;
+                btn.className = (idx + 1 === tier) ? `tier-filter px-4 sm:px-6 py-2 rounded-xl bg-sky-600 text-white font-bold text-xs sm:text-sm shadow-md transition-all` : `tier-filter px-4 sm:px-6 py-2 rounded-xl bg-white text-slate-600 border font-bold text-xs sm:text-sm transition-all`;
             });
             renderElements(tier);
         }
@@ -305,7 +423,8 @@
             document.querySelectorAll('.view-content').forEach(v => v.classList.remove('active'));
             document.getElementById('view-' + viewId)?.classList.add('active');
             document.querySelectorAll('.nav-btn, .sidebar-item').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`[data-nav="${viewId}"]`)?.classList.add('active');
+            document.querySelectorAll(`[data-nav="${viewId}"]`).forEach(btn => btn.classList.add('active'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         const overlay = document.getElementById('modal-overlay');
@@ -326,4 +445,3 @@
     </script>
 </body>
 </html>
-
